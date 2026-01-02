@@ -1,6 +1,21 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import { onMounted } from 'vue'
+
+function DarkModeOn() {
+  const isDark = document.documentElement.classList.toggle('dark')
+  localStorage.setItem('theme', isDark ? 'dark' : 'light')
+}
+
+onMounted(() => {
+  const saved = localStorage.getItem('theme')
+  if (saved === 'dark') {
+    document.documentElement.classList.add('dark')
+  }
+})
+
+
 </script>
 
 <template>
@@ -9,6 +24,9 @@ import HelloWorld from './components/HelloWorld.vue'
   <nav>
     <RouterLink to="/">Go to Home</RouterLink>
     <RouterLink to="/about">Go to About</RouterLink>
+    <button @click="DarkModeOn">
+      <img src="../src/assets/darkmode.svg" alt="darkmode button" width="20" id="button-dark">
+    </button>
   </nav>
   <main>
     <RouterView />
@@ -16,6 +34,7 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style scoped>
+
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -27,10 +46,14 @@ header {
 }
 
 nav {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 nav a.router-link-exact-active {
