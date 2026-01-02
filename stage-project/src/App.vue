@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+
+const isDark = ref(false)
 
 function DarkModeOn() {
-  const isDark = document.documentElement.classList.toggle('dark')
+  isDark.value = !isDark.value
+  document.documentElement.classList.toggle('dark', isDark.value)
   localStorage.setItem('theme', isDark ? 'dark' : 'light')
 }
 
 onMounted(() => {
   const saved = localStorage.getItem('theme')
   if (saved === 'dark') {
+    isDark.value = true
     document.documentElement.classList.add('dark')
   }
 })
@@ -25,7 +29,8 @@ onMounted(() => {
     <RouterLink to="/">Go to Home</RouterLink>
     <RouterLink to="/about">Go to About</RouterLink>
     <button @click="DarkModeOn">
-      <img src="../src/assets/darkmode.svg" alt="darkmode button" width="20" id="button-dark">
+      <img v-if="isDark" src="../src/assets/light-mode.svg" alt="darkmode button" width="20">
+      <img v-else src="../src/assets/dark-mode.svg" alt="lightmode" width="20">
     </button>
   </nav>
   <main>
@@ -34,6 +39,8 @@ onMounted(() => {
 </template>
 
 <style scoped>
+
+
 
 header {
   line-height: 1.5;
