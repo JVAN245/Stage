@@ -1,14 +1,13 @@
 <script setup lang="ts">
-defineProps<{ title?: string; subtitle?: string }>();
+defineProps<{ items?: { title?: string; subtitle?: string }[] }>()
 </script>
 
 <template>
   <section class="hero-template">
-    <header v-if="title">
-      <h1>{{ title }}</h1>
-      <p>{{ subtitle }}</p>
+    <header v-if="items?.length">
+      <h1>{{ items[0].title }}</h1>
+      <p>{{ items[0].subtitle }}</p>
     </header>
-    
-    <slot /> 
+    <slot />
   </section>
 </template>

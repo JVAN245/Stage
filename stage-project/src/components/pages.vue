@@ -2,6 +2,7 @@
 import { useRoute } from "vue-router";
 import { computed, ref, watchEffect } from "vue";
 import { templates } from "../templates"; 
+
 const route = useRoute();
 const pageData = ref<any>(null);
 
@@ -15,21 +16,18 @@ watchEffect(async () => {
   }
 });
 
-const Template = computed(() => {
-  if (!pageData.value) return templates.DefaultPage;
-  return templates[pageData.value.template] ?? templates.DefaultPage;
-});
+const Wrapper = computed(() => templates.DefaultPage);
 
-const body = computed(() => pageData.value?.body ?? []);
+const blocks = computed(() => pageData.value?.templates ?? [])
 </script>
 
 <template>
-  <component :is="Template" v-if="pageData" v-bind="pageData">
+  <component :is="Wrapper" v-if="blocks.length">
     <component
-      v-for="(block, i) in body"
+      v-for="(block, i) in blocks"
       :key="i"
-      :is="templates[block.component]"
-      v-bind="block.props"
+      :is="templates[block.template]"
+      v-bind="block.content"
     />
   </component>
 </template>

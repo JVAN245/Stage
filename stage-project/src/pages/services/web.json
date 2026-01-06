@@ -1,18 +1,18 @@
 {
-  "template": "DefaultPage",
-  "title": "Développement Web",
-  "subtitle": "Nous créons des sites modernes",
-  "body": [
+  "templates": [
     {
-      "component": "Hero",
-      "props": {
-        "title": "Bienvenue sur le Web",
-        "subtitle": "Expertise Vue.js"
+      "template": "Hero",
+      "content": {
+        "items" : [{
+            "title": "Bienvenue sur le Web",
+            "subtitle": "Expertise Vue.js"
+          }
+        ]
       }
     },
     {
-      "component": "TextBlock",
-      "props": {
+      "template": "TextBlock",
+      "content": {
         "content": "Ceci est un bloc de texte généré dynamiquement depuis le JSON."
       }
     }
