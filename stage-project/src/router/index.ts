@@ -15,9 +15,8 @@ const router = createRouter({
     },
     {
       path: '/:root/:page',
-      name: 'dynamic-page',
+      name: 'Service',
       component: () => import('../components/pages.vue'),
-
       beforeEnter: (to) => {
         to.meta.root = to.params.root;
         to.meta.page = to.params.page;

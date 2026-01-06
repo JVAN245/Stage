@@ -1,0 +1,18 @@
+{
+  "$r": [
+    {
+      "path": "/",
+      "title": "HomePage"
+    },
+
+    {
+      "path": "/About",
+      "title": "AboutUs"
+    },
+
+    {
+      "path": "/Services",
+      "title": "ServicesWeb"
+    }
+  ]
+}
