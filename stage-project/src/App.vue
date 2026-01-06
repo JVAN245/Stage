@@ -6,7 +6,8 @@ import NavBar from './components/NavBar.vue'
   <NavBar
     :links="[
       { title: 'Home', to: '/' },
-      { title: 'About', to: '/about' }
+      { title: 'About', to: '/about' },
+      { title: 'Nos Services', to: '/services/web' } 
     ]"
   />
   <main>

@@ -1,0 +1,20 @@
+{
+  "template": "DefaultPage",
+  "title": "Développement Web",
+  "subtitle": "Nous créons des sites modernes",
+  "body": [
+    {
+      "component": "Hero",
+      "props": {
+        "title": "Bienvenue sur le Web",
+        "subtitle": "Expertise Vue.js"
+      }
+    },
+    {
+      "component": "TextBlock",
+      "props": {
+        "content": "Ceci est un bloc de texte généré dynamiquement depuis le JSON."
+      }
+    }
+  ]
+}

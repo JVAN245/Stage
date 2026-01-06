@@ -13,6 +13,16 @@ const router = createRouter({
       name: 'about',
       component: () => import('../views/AboutView.vue'),
     },
+    {
+      path: '/:root/:page',
+      name: 'dynamic-page',
+      component: () => import('../components/pages.vue'),
+
+      beforeEnter: (to) => {
+        to.meta.root = to.params.root;
+        to.meta.page = to.params.page;
+      }
+    },
   ],
 })
 
