@@ -1,0 +1,59 @@
+{
+  "templates": [
+    {
+      "template": "cards",
+      "content": {
+        "items":[
+          {
+            "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096"
+          },
+          {
+            "isBlue": true,
+            "content": "L'association, active depuis janvier 2021, s’est développée voyant un noyau actif de bénévoles s’engager dans le projet de manière croissante. Elle se consacre à sensibiliser aux influences positives et négatives des outils numériques, tels que les réseaux sociaux, la téléréalité, les jeux vidéo ou encore les IAs, tout en valorisant les compétences dans ce domaine."
+          },
+          {
+            "isBlue": true,
+            "content": "Nous produisons et diffusons du contenu pédagogique via des ateliers parents-enfants, des formations à destination des acteurs de l’éducation populaire, et notre participation à divers salons et conférences. Ensuite, nous transformons ce contenu en évènement, tels que des tournois eSport <i>SAFE LEAGUE</i> et des concepts de streams sur Twitch, afin de véhiculer la pédagogie de manière subtile et attrayante."
+          },
+          {
+            "image": "https://pbs.twimg.com/media/GTf8ucqWQAAqOYQ?format=jpg&name=medium"
+          },
+          {
+            "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096"
+          },
+          {
+            "isBlue": true,
+            "content": "<p>La plus-value de notre offre réside dans notre approche unique et interactive de l'Accueil de Loisirs Numérique, permettant d’accompagner les projets de jeunes et organiser l’usage et l’apprentissage du numérique dans un environnement sûr, adapté aux nouvelles générations.</p><p>Nous collaborons avec divers partenaires, tant institutionnels que associatifs, pour répondre à la demande croissante de sensibilisation aux pratiques numériques.</p>"
+          },
+          {
+            "isBlue": true,
+            "title": "Nos Valeurs",
+            "content": "<p><b>Émancipation</b> : parce que nous aidons les jeunesses à mieux discerner leurs compétences dans l'espace médiatique, mieux se connaître, se construire des repères et être plus autonome.</p><p><b>Résilience</b> : parce que notre monde change et que c’est au contact des nouvelles générations que nous continuons de faire évoluer nos contenus de sensibilisation.</p><p><b>Citoyenneté</b> : parce que nous accompagnons les jeunesses au sein de collectifs, où chacun a son mot à dire, un rôle à jouer, et sa part de responsabilité.</p>"
+          },
+          {
+            "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096"
+          },
+          {
+            "image": "https://pbs.twimg.com/media/GTf8ucqWQAAqOYQ?format=jpg&name=medium"
+          },
+          {
+            "isBlue": true,
+            "title": "Problématiques",
+            "content": "<p><b>Fossé générationnel</b> : Les innovations au sein de notre environnement médiatique transforment toujours plus vite nos habitudes et nos modes de communication. Les projets entrepris par les jeunesses à l’aide des outils numériques ne sont pas toujours compris, ni forcément bien accompagnés par la communauté éducative.</p><p><b>Manque d’infrastructure</b> : Pour pratiquer l’Esport, participer à un projet de gaming collaboratif ou encore réaliser des productions multimédias à destination des réseaux sociaux, très peu de structures sont présentes pour accompagner les jeunesses. C’est dans leur temps libre que ces champs sont investis, cet accompagnement relève donc des acteurs de l’éducation populaire.</p><p><b>Santé mentale</b> : La moitié des 11-15 ans souffre de symptômes d’anxiété, plus de 20% des 18-24 ans sont concernés par la dépression, et 1 lycéen sur 4 déclare avoir eu des pensées suicidaires. La toxicité en ligne, le cyber-harcèlement, les problématiques d’addiction et d’isolement sont autant d’éléments qui matérialisent un besoin : nous avons besoin de créer des Safe Place en ligne, au sein desquelles les jeunesses peuvent se rassembler, s’exprimer, échanger et créer.</p>"
+          },
+          {
+            "isBlue": true,
+            "title": "Nos Objectifs",
+            "content": "<p><b>Sensibilisation</b> : informer ; promouvoir les usages responsables des technologies numériques par le biais d'ateliers et de formations ;</p><p><b>Professionnalisation</b> : valoriser et développer les compétences numériques en accompagnant les projets et démarches de création ;</p><p><b>Socialisation</b> : utiliser les outils numériques pour renforcer le lien social et créer des environnements sûrs et propices aux usages numériques ;</p><p><b>Innovation</b> : développer des outils et des contenus en lien avec les besoins évolutifs, en intégrant les nouvelles technologies et tendances ;</p><p><b>Inclusion</b> : encourager l'appropriation des technologies par tous les publics, sans discrimination, en favorisant le lien social et l'engagement communautaire.</p>"
+          },
+          {
+            "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096"
+          }
+        ]
+      }
+    },
+    {
+      "content": "<p><b>Émancipation</b> : parce que nous aidons les jeunesses à mieux discerner leurs compétences dans l'espace médiatique, mieux se connaître, se construire des repères et être plus autonome.</p><p><b>Résilience</b> : parce que notre monde change et que c’est au contact des nouvelles générations que nous continuons de faire évoluer nos contenus de sensibilisation.</p><p><b>Citoyenneté</b> : parce que nous accompagnons les jeunesses au sein de collectifs, où chacun a son mot à dire, un rôle à jouer, et sa part de responsabilité.</p>"
+    }
+  ]
+}

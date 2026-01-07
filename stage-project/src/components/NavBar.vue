@@ -1,17 +1,52 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import sitemap from "../Pages/sitemap.json";
 import DarkMode from './DarkMode.vue';
 
-const props = defineProps<{
-  links: Array<{ title: string; to: string }>
-}>()
+const route = useRoute();
+const router = useRouter();
+
+type SiteRoute = {
+  path: string;
+  title: string;
+  children?: SiteRoute[];
+};
+
+const rootRoutes = sitemap.$r as SiteRoute[];
+
+const links = computed(() =>
+  rootRoutes.flatMap((r) =>
+    r.children
+      ? r.children.map((c) => ({
+          title: c.title,
+          path: `/${r.path}/${c.path}`,
+        }))
+      : [
+          {
+            title: r.title,
+            path: `/${r.path}`,
+          },
+        ]
+  )
+);
+
+function navigate(path: string) {
+  router.push(path);
+}
 </script>
 
 <template>
-  <nav>
-    <ul>
-      <li v-for="link in props.links" :key="link.to">
-        <RouterLink :to="link.to">{{ link.title }}</RouterLink>
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li
+        v-for="link in links"
+        :key="link.path"
+        class="nav-item"
+        :class="{ active: route.fullPath === link.path }"
+        @click="navigate(link.path)"
+      >
+        {{ link.title }}
       </li>
       <li>
           <DarkMode></DarkMode>

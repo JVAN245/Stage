@@ -4,13 +4,7 @@
 </script>
 
 <template>
-  <NavBar
-    :links="[
-      { title: 'Home', to: '/' },
-      { title: 'About', to: '/about' },
-      { title: 'Nos Services', to: '/services/web' } 
-    ]"
-  />
+  <NavBar/>
   <main>
     <RouterView />
   </main>

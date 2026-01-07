@@ -1,18 +1,76 @@
 {
   "$r": [
     {
-      "path": "/",
-      "title": "HomePage"
+      "path": "aboutus",
+      "title": "Qui sommes nous ?",
+      "description": "Test description"
     },
-
     {
-      "path": "/About",
-      "title": "AboutUs"
+      "path": "sensibilisation",
+      "title": "Sensibilisation",
+      "children": [
+        {
+          "path": "ateliers",
+          "title": "Ateliers Parents/Enfants",
+          "description": "Description ateliers"
+        },
+        {
+          "path": "emi",
+          "title": "Ateliers d'éducation aux Médias et à l'Information (EMI)"
+        },
+        {
+          "path": "collaboration",
+          "title": "Collaborations et citoyenneté"
+        },
+        {
+          "path": "gamedesign",
+          "title": "Game Design"
+        }
+      ]
     },
-
     {
-      "path": "/Services",
-      "title": "ServicesWeb"
+      "path": "formations",
+      "title": "Formations",
+      "children": [
+        {
+          "path": "mineurs",
+          "title": "Accueil Collectif de mineurs"
+        },
+        {
+          "path": "ia",
+          "title": "Initiations à l'IA"
+        },
+        {
+          "path": "outils",
+          "title": "Outils collaboratifs"
+        },
+        {
+          "path": "initiations",
+          "title": "Initiations aux métiers du numérique"
+        }
+      ]
+    },
+    {
+      "path": "rdp",
+      "title": "Recherche, Développement et Projets",
+      "children": [
+        {
+          "path": "safeleague",
+          "title": "Safe League"
+        },
+        {
+          "path": "events",
+          "title": "Organisations et Animations d'évènements communautaires"
+        },
+        {
+          "path": "accompagnement",
+          "title": "Accompagnement de projets"
+        }
+      ]
+    },
+    {
+      "path": "webtv",
+      "title": "WebTv"
     }
   ]
 }
