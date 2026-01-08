@@ -1,0 +1,51 @@
+{
+  "templates": [
+    {
+      "template": "Base",
+      "content": "<h2>Bienvenue sur notre site</h2><p>Nous sensibilisons aux usages numériques et développons les compétences des jeunes dans un environnement sûr.</p>"
+    },
+    {
+      "template": "Cards",
+      "content": {
+        "items": [
+          {
+            "title": "Mission",
+            "isBlue": true,
+            "content": "<p>Accompagner les jeunes dans leur apprentissage du numérique, en valorisant leurs compétences et leur autonomie.</p>"
+          },
+          {
+            "title": "Valeurs",
+            "isBlue": true,
+            "content": "<p>Émancipation, Résilience, Citoyenneté.</p>"
+          },
+          {
+            "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096"
+          }
+        ]
+      }
+    },
+    {
+      "template": "Video",
+      "content": {
+        "url": "https://www.w3schools.com/html/mov_bbb.mp4"
+      }
+    },
+    {
+      "template": "Quote",
+      "content": {
+        "text": "L'apprentissage du numérique doit être ludique et responsable.",
+        "author": "Association Numérique"
+      }
+    },
+    {
+      "template": "Gallery",
+      "content": {
+        "images": [
+          "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096",
+          "https://pbs.twimg.com/media/GTf8ucqWQAAqOYQ?format=jpg&name=medium",
+          "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096"
+        ]
+      }
+    }
+  ]
+}

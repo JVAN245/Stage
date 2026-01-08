@@ -1,70 +1,37 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
-import { Card, ListContent } from "../types/types";
-const props = defineProps<{
-	content: ListContent<Card>,
-	edit: boolean
-}>();
-const emits = defineEmits<{ (event: "modified", template: string, content: ListContent<Card>): void }>();
-const list = ref(structuredClone(props.content));
-const getImageUrl = computed(() => {
-  return (imagePath: string | undefined) => {
-    if (!imagePath) return undefined;
-    return new URL(imagePath, import.meta.url).href;
-  };
-});
-watch(
-    () => props.edit,
-    () => {
-      if (JSON.stringify(list.value.items) !== JSON.stringify(props.content.items))
-        emits("modified", "cards", list.value);
-    }
-);
+const props = defineProps<{ content: { items: any[] } }>();
 </script>
 
 <template>
-  <section class="mission-section">
-    <ListBase
-      :edit="edit"
-      :items="content.items"
-      :empty-item="{}"
+  <div class="cards-grid">
+    <div
+      v-for="(item, index) in props.content.items"
+      :key="index"
+      class="card"
+      :class="{ 'blue-card': item.isBlue }"
     >
-      <template #editor="{ index }">
-        <input type="text" v-model="list.items[index].image" />
-        <input type="text" v-model="list.items[index].title" />
-        <input type="checkbox" v-model="list.items[index].isBlue" />
-        <Editor v-model="list.items[index].content" />
-      </template>
-      <template #item="{ item }">
-        <div class="card" :class="{ 'blue-card': item.isBlue }">
-          <h2 v-if="item.title" class="card-title">{{ item.title }}</h2>
-          <img
-            v-if="item.image"
-            :src="getImageUrl(item.image)"
-            class="card-image"
-            alt="Image illustration"
-          />
-          <div v-if="item.content" v-html="item.content" class="card-content"></div>
-        </div>
-      </template>
-    </ListBase>
-  </section>
+      <h2 v-if="item.title">{{ item.title }}</h2>
+      <img v-if="item.image" :src="item.image" />
+      <div v-if="item.content" v-html="item.content"></div>
+    </div>
+  </div>
 </template>
-
 <style scoped>
 .mission-section {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 2rem 1rem;
 }
 
 :deep(.list) {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   max-width: 1440px;
   width: 100%;
+  padding: 1rem;
 }
 
 :deep(.list > div) {
@@ -75,18 +42,25 @@ watch(
   position: relative;
   border-radius: 1rem;
   overflow: hidden;
-  height: 364px;
   background-color: var(--card-bg);
-  border: 1px var(--card-bg) solid;
-  box-shadow: 0 0 #0000, 0 0 #0000, 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
+  border: 1px solid var(--card-bg-alt);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+              0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15),
+              0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
   width: 100%;
-  height: 100%;
-  padding: 0.5rem;
+  height: 220px;
   object-fit: cover;
-  border-radius: 1rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .blue-card {
@@ -95,27 +69,55 @@ watch(
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blue-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12),
+              0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
 .card-title {
   font-family: "NeuePlak-Bold", sans-serif;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
   text-decoration: underline;
+  color: var(--text-color);
+}
+
+.card-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color-secondary);
+}
+
+@media (max-width: 1024px) {
+  :deep(.list) {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .card-image {
+    height: 180px;
+  }
 }
 
 @media (max-width: 768px) {
-  .cards-grid {
+  :deep(.list) {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-
   .card {
-    height: 300px;
+    height: auto;
   }
-
-  .mission-title {
-    font-size: 2rem;
+  .blue-card {
+    padding: 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+  .card-title {
+    font-size: 1.5rem;
   }
 }
 </style>

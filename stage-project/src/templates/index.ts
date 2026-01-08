@@ -1,13 +1,20 @@
 import type { Component } from "vue";
-import Hero from "./Hero.vue";
-import TextBlock from "./TextBlock.vue";
-import DefaultPage from "./DefaultPage.vue"; 
-import Base from "./Base.vue"
-import Cards from "./Cards.vue"
 
-export const templates = {
+import Base from "./Base.vue";
+import Cards from "./Cards.vue";
+import List from "./List.vue";
+import Video from "./Video.vue";
+import Quote from "./Quote.vue";
+import Gallery from "./Gallery.vue";
+
+const templates: Record<string, Component> = {
   Base,
-  Cards
-} satisfies Record<string, Component>;
+  Cards,
+  List,
+  Video,
+  Quote,
+  Gallery
+};
 
-export type TemplateName = keyof typeof templates;
+export { Base };
+export default templates;

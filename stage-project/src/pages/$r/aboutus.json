@@ -1,7 +1,7 @@
 {
   "templates": [
     {
-      "template": "cards",
+      "template": "Cards",
       "content": {
         "items":[
           {
