@@ -27,7 +27,11 @@
     {
       "template": "Video",
       "content": {
-        "url": "https://www.w3schools.com/html/mov_bbb.mp4"
+        "urls": [
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+          "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+        ]
       }
     },
     {
