@@ -9,30 +9,43 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0;
   margin: 0;
+  padding: 0;
 
   /* Light Theme */
   --color-background: #9999FF;
   --color-text: #111111;
   --color-link: #222299;
   --color-link-hover: #000033;
+  --color-border: #ccccff;
+  --card-bg: #ffffff;
+  --card-bg-alt: #e6e6ff;
 }
 
-/* Dark Theme */
 .dark {
   --color-background: #111111;
   --color-text: #9999FF;
   --color-link: #222299;
   --color-link-hover: #6666FF;
+  --color-border: #4444aa;
+  --card-bg: #222222;
+  --card-bg-alt: #333366;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 a {
   font-weight: 500;
   color: var(--color-link);
-  text-decoration: inherit;
-
-  transition: all 200ms;
+  text-decoration: none;
+  transition: color 200ms;
 }
 
 a:hover {
@@ -43,33 +56,23 @@ a.router-link-exact-active {
   color: var(--color-text);
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--color-background);
-  color: var(--color-text);
-
-  transition: all 200ms;
-}
-
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin: 0 0 1rem;
 }
 
 button {
   color: var(--color-background);
+  background-color: var(--color-link-hover);
   border-radius: 8px;
-  border: 1px solid transparent;
-  border-color: var(--color-link);
+  border: 1px solid var(--color-link);
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: var(--color-link-hover);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 
 button:hover {
@@ -87,6 +90,15 @@ button > svg path {
 
 .card {
   padding: 2em;
+  border-radius: 1rem;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 #app {
@@ -106,5 +118,7 @@ button > svg path {
   }
   button {
     background-color: #f9f9f9;
+    color: #213547;
+    border-color: #747bff;
   }
 }

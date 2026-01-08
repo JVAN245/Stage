@@ -6,27 +6,34 @@ import Page from "../components/pages.vue"
 
 let routes: RouteRecordRaw[] = [
     { 
-        path: '/:pathMatch(.*)',
+        path: '/:pathMatch(.*)*',
         component: h("div", "Oups ! Cette page n'existe pas")
     },
     {
-        path: "/", redirect: '/aboutus'
+        path: "/", 
+        redirect: '/aboutus'
     },
 ];
 
-function getRoutes(root: Route[], path?: string): RouteRecordRaw[] {
+function getRoutes(root: Route[], parentPath: string = ""): RouteRecordRaw[] {
   const routes: RouteRecordRaw[] = [];
-  const basePath = path ? path + "/" : "/";
+  
   root.forEach((route) => {
+    const fullPath = parentPath ? `${parentPath}/${route.path}` : `/${route.path}`;
+    
     if (route.children) {
-      const innerRoutes = getRoutes(route.children, basePath + route.path);
-      routes.push(...innerRoutes);
-    } else
+      // For routes with children, create routes for the children
+      const childRoutes = getRoutes(route.children, fullPath);
+      routes.push(...childRoutes);
+    } else {
+      // For leaf routes, create the actual route
       routes.push({
-        path: basePath + route.path,
+        path: fullPath,
         component: Page,
       });
+    }
   });
+  
   return routes;
 }
 
@@ -37,22 +44,48 @@ const router = createRouter({
 
 router.beforeEach((to, _, next) => {
     const { fullPath } = to;
-    const splittedPath = fullPath.split("/");
-    splittedPath.shift();
-    const page = splittedPath.pop();
-    const root = splittedPath.pop() ?? "$r";
-    const route = sitemap.$r.find((r) => {
-    if (r.children) {
-        return r.children.find((c) => c.path === page);
-    } else return r.path === page;
-    });
-    const subpageRoute = route?.children?.find((c) => c.path === page);
-    const title = subpageRoute?.title ?? route?.title ?? "404";
+    const pathSegments = fullPath.split("/").filter(Boolean); // Remove empty strings
+    
+    // Determine root and page based on path depth
+    let root: string;
+    let page: string;
+    
+    if (pathSegments.length === 1) {
+        // Root-level route like /aboutus
+        root = "$r";
+        page = pathSegments[0];
+    } else if (pathSegments.length === 2) {
+        // Nested route like /sensibilisation/ateliers
+        root = pathSegments[0];
+        page = pathSegments[1];
+    } else {
+        // Fallback for unexpected paths
+        root = "$r";
+        page = pathSegments[pathSegments.length - 1] || "";
+    }
+    
+    // Find the route definition in sitemap
+    let title = "404";
+    
+    if (root === "$r") {
+        // Look for root-level route
+        const route = sitemap.$r.find((r) => r.path === page);
+        title = route?.title ?? "404";
+    } else {
+        // Look for nested route
+        const parentRoute = sitemap.$r.find((r) => r.path === root);
+        if (parentRoute?.children) {
+            const childRoute = parentRoute.children.find((c) => c.path === page);
+            title = childRoute?.title ?? "404";
+        }
+    }
+    
     to.meta = {
         root,
         page,
         title
     };
+    
     next();
 });
 

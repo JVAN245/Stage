@@ -1,90 +1,57 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { vElementVisibility } from '@vueuse/components';
 import type { Content, ListContent } from '../types/types';
 
 const props = defineProps<{
   content: ListContent<Content>
 }>();
 
-const list = ref(structuredClone(props.content));
-const isVisible = ref(new Array<boolean>(list.value.items.length).fill(false));
-const current = ref(-1);
-
-function onElementVisibility(state: boolean, element: number) {
-  isVisible.value[element] = state;
-  current.value = isVisible.value.indexOf(true);
-}
+const list = ref(props.content.items);
 </script>
 
 <template>
-  <ListBase :items="list.items">
-    <template #item="{ item, index }">
-      <div class="item-container" :class="item.class" v-element-visibility="(state: boolean) => onElementVisibility(state, index)">
-        <div class="image-container">
-          <img :src="item.image" />
-        </div>
-        <Teleport v-if="index === current" to="#main-logo">
-          <img class="image-ext" :src="item.image" />
-        </Teleport>
-        <div class="item">
-          <h2>{{ item.title }}</h2>
-          <div v-html="item.description"></div>
-        </div>
+  <div class="list-container">
+    <div v-for="(item, index) in list" :key="index" class="item-container">
+      <div v-if="item.image" class="image-container">
+        <img :src="item.image" />
       </div>
-    </template>
-  </ListBase>
+      <div class="item">
+        <h2 v-if="item.title">{{ item.title }}</h2>
+        <div v-html="item.description"></div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
 .item-container {
-	display: flex;
-    flex-grow: 1;
-    margin: 8px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: var(--color-background);
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-:deep(.item-line) {
-	min-height: 344px;
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
 }
 
-:deep(.item-line):nth-child(even) > .item-container {
-	flex-direction: row-reverse;
-}
-.image-container {
-	display: flex;
-	width: 344px;
-	min-height: 344px;
-	align-items: center;
+.item h2 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
 }
 
-img {
-	max-width: 344px;
-	max-height: 344px;
-	height: auto;
-}
-
-.item {
-	max-width: calc(80% - 344px);
-	margin: auto;
-	text-align: center;
-}
-
-.image-ext {
-	display: none;
-}
-
-@media screen and (max-width: 720px) /*Phone media querie*/
-{
-	.image-container {
-		display: none;
-	}
-	
-	.image-ext {
-		display: initial;
-	}
-
-	.item {
-		max-width: 100%;
-	}
+.item div {
+  font-size: 1rem;
+  line-height: 1.4;
 }
 </style>

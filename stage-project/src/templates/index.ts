@@ -6,6 +6,7 @@ import List from "./List.vue";
 import Video from "./Video.vue";
 import Quote from "./Quote.vue";
 import Gallery from "./Gallery.vue";
+import Carrousel from "./Carrousel.vue";
 
 const templates: Record<string, Component> = {
   Base,
@@ -13,7 +14,8 @@ const templates: Record<string, Component> = {
   List,
   Video,
   Quote,
-  Gallery
+  Gallery,
+  Carrousel
 };
 
 export { Base };

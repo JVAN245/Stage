@@ -1,0 +1,22 @@
+{
+  "template": "Carrousel",
+  "content": {
+    "items": [
+      {
+        "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096",
+        "title": "Mission",
+        "description": "<p>Accompagner les jeunes dans leur apprentissage du numérique, en valorisant leurs compétences et leur autonomie.</p>"
+      },
+      {
+        "image": "https://pbs.twimg.com/media/GTf8ucqWQAAqOYQ?format=jpg&name=medium",
+        "title": "Valeurs",
+        "description": "<p>Émancipation, Résilience, Citoyenneté.</p>"
+      },
+      {
+        "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096",
+        "title": "Projets",
+        "description": "<p>Nous organisons des ateliers, tournois eSport et contenus pédagogiques pour sensibiliser les jeunes aux usages numériques.</p>"
+      }
+    ]
+  }
+}

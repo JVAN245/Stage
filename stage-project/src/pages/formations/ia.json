@@ -1,0 +1,26 @@
+{
+  "templates": [
+    {
+      "template": "List",
+      "content": {
+        "items": [
+          {
+            "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096",
+            "title": "Initiation à l'IA",
+            "description": "<p>Découverte des concepts fondamentaux de l'intelligence artificielle et de ses applications pratiques.</p>"
+          },
+          {
+            "image": "https://pbs.twimg.com/media/GTf8ucqWQAAqOYQ?format=jpg&name=medium",
+            "title": "Applications",
+            "description": "<p>Exploration des outils collaboratifs basés sur l'IA et de l'impact de l'IA sur le monde numérique et professionnel.</p>"
+          },
+          {
+            "image": "https://pbs.twimg.com/media/Gdtc1-TXMAEOZJt?format=jpg&name=4096x4096",
+            "title": "Projets Pratiques",
+            "description": "<p>Mise en place de projets simples pour comprendre le fonctionnement des algorithmes et l'intégration de l'IA dans des applications réelles.</p>"
+          }
+        ]
+      }
+    }
+  ]
+}

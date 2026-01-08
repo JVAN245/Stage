@@ -68,10 +68,27 @@ const validItems = computed(() =>
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  gap: 2rem; /* espacement entre les sections */
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
 #title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  font-weight: 600;
   margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  #title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .page {
+    padding: 0.5rem;
+  }
 }
 </style>
+
